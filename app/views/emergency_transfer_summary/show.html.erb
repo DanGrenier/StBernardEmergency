@@ -1,0 +1,109 @@
+<div class = "row">
+
+<div class = "panel panel-with-borders">
+	<div class = "panel-heading blue-header">
+		<div class = "panel-title">
+			<h3 style="display: inline">
+        <%=I18n.t 'transfer_summary.title'%>
+      </h3>
+      
+        <%=link_to (I18n.t 'transfer_summary.print_button'), "#",
+      {onclick:"window.print();return false;",
+                  class:"btn btn-print no-print", 
+                  style: "float: right"}%>
+      
+		</div>
+	</div>
+	<div class = "panel-title silver-title transfer-label">
+	  <%=I18n.t 'transfer_summary.facility_title'%>
+  </div>
+  <div class="panel-body">
+  	<div class = "row">
+  		<div class = "col-sm-3 transfer-label">
+  			<%=I18n.t 'transfer_summary.facility_name'%>
+  		</div>
+  	</div>
+  	<div class = "row">
+  		<div class = "col-sm-3">
+  			<%=Facility.first.name%>
+  		</div>
+  	</div>
+  </div>
+  <div class = "panel-title silver-title transfer-label">
+	  <%=I18n.t 'transfer_summary.patient_information_title'%>
+  </div>
+  <div class = "panel-body">
+  	<div class = "row">
+  		<div class = "col-sm-2 transfer-label">
+  			<%=I18n.t 'transfer_summary.patient_first_name'%>
+  		</div>
+  		<div class = "col-sm-2 transfer-label">
+  			<%=I18n.t 'transfer_summary.patient_middle_name'%>
+  		</div>
+  		<div class = "col-sm-2 transfer-label">
+  			<%=I18n.t 'transfer_summary.patient_last_name'%>
+  		</div>
+  		<div class = "col-sm-3 transfer-label">
+  			<%=I18n.t 'transfer_summary.patient_mr'%>
+  		</div>
+  	</div>
+  	<div class = "row">
+  		<div class = "col-sm-2">
+  			<%=@patient.first_name%>
+  		</div>
+  		<div class = "col-sm-2">
+  			<%=@patient.middle_name%>
+  		</div>
+  		<div class = "col-sm-2">
+  			<%=@patient.last_name%>
+  		</div>
+  		<div class = "col-sm-3">
+  			<%=@patient.mr%>
+  		</div>
+  	</div>
+  </div>
+  <div class = "panel-title silver-title transfer-label">
+	  <%=I18n.t 'transfer_summary.summary_title'%>
+	</div>
+  <div class = "panel-body">
+  	<div class = "row col-sm-12">
+      <p id="paragraph1">
+  		<%=I18n.t('transfer_summary.summary_paragraph1',
+  							age: @patient.age,
+  							sex: Patient.human_enum_name(:genders,@patient.gender),
+  							facility_name: "Blue Alps Ski Camp",
+  							date: @patient.admission.date,
+  							time: @patient.admission.time,
+  							diagnoses: @patient.admission.diagnoses_list,
+  							symptoms: @patient.admission.symptoms_list,
+  							observations: @patient.admission.observations_list)%>
+      </p>
+      <p id="paragraph2">
+        <%=I18n.t('transfer_summary.summary_paragraph2',
+           allergies: @patient.allergies_list,
+           chronic_conditions: @patient.chronic_conditions_list)%>
+        <%if @patient.medications.any?%>
+          <%= I18n.t('transfer_summary.summary_medications',
+            medications: @patient.medications_list) %>
+        <%end%>
+      </p>
+
+      <p id="paragraph3">
+        <%=I18n.t('transfer_summary.summary_paragraph3',
+        diagnostic_procedures: @patient.diagnostic_procedures_list,
+        patient_diagnoses: @patient.diagnoses_list)%>
+        <%if @patient.treatments.any? %>
+          <%=I18n.t('transfer_summary.summary_treatment',
+      treatments: @patient.treatments_list)%>
+        <%end%>
+      </p>
+  	</div>
+  </div>
+</div>
+
+<div class = "no-print">
+<%=link_to (I18n.t 'transfer_summary.return_button') ,
+'/patients', class:"btn btn-return"%>
+</div>
+
+</div>

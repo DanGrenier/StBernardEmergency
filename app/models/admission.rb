@@ -6,8 +6,12 @@ class Admission < ApplicationRecord
 	has_many :symptoms, through: :admission_symptoms
 	has_many :observations
 
-	scope :current, -> (target_date) { joins(:patient).select("patients.last_name as last_name, patients.first_name as first_name, patients.id as id").where('DATE(admissions.moment) = ?',target_date)}
+	scope :current, -> (target_date) {where('DATE(admissions.moment) = ?',target_date)}
 
+
+	def patient_name
+		"#{self.patient.last_name}, #{self.patient.first_name}"
+	end
 
 	def diagnoses_list
 		self.diagnoses.map{|d| d.description_and_code}.to_sentence

@@ -27,11 +27,11 @@ class Patient < ApplicationRecord
 	end
 
 	def allergies_list
-		self.allergies.any? ? self.allergies.map{|allergy| allergy.description}.to_sentence : "No allergies"
+		self.allergies.any? ? self.allergies.map{|allergy| allergy.description}.to_sentence : I18n.t('no_allergies')
 	end
 
 	def chronic_conditions_list
-		self.chronic_conditions.any? ? self.chronic_conditions.map {|condition| condition.description}.to_sentence : "No chronic conditions"
+		self.chronic_conditions.any? ? self.chronic_conditions.map {|condition| condition.description}.to_sentence : I18n.t('no_chronic_conditions')
 	end
 
 	def medications_list

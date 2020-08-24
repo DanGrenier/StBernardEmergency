@@ -1,10 +1,23 @@
-<div class = "jumbotron"><h1>Emergency Transfer Summary</div>
-
-<div class= "row">
-	<div class = "col-sm-6">
-		Column 1
-	</div>
-	<div class = "col-sm-6">
-		Column 2
+<div class = "row">
+	<div class = "col-sm-12">
+		<div class = "form-group">
+			<%=label_tag(:patient,
+ 		  (I18n.t ('patient_selection.select_patient')),
+ 		   class: "control-label col-sm-3")%>
+	  
+		  <div class = "col-sm-4">
+	  
+		    <%=collection_select(nil, :id, @patients, -> (p) {emergency_transfer_summary_path p},
+		      :patient_name, {selected: -1},
+		      {class: "form-control input-sm"}) %>
+		  </div>
+		  <div class = "col-sm-2">
+    	  <%=button_tag( 
+    	    (I18n.t ('patient_selection.transfer_button')) ,
+    	    {type:"submit",
+    	  	 class: "btn btn-primary",
+    	  	 onclick: "redirectToShow()"})%>
+      </div>
+    </div>
 	</div>
 </div>
