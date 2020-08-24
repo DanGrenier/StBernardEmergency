@@ -1,2 +1,39 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+:root {
+	--custom-blue: #002b7f;
+}
+
+body {
+	margin-top: 10px;
+}
+
+
+.btn-print {
+	background-color: white;
+	color: var(--custom-blue) !important;
+}
+
+.btn-return {
+	background-color: var(--custom-blue);
+	color: white !important;
+}
+.blue-header{
+	background-color: var(--custom-blue);
+	color: white;
+}
+
+.silver-title {
+	background-color: silver;
+}
+
+.transfer-label{
+	font-weight: 700;
+}
+
+.panel-with-borders {
+	border: 2px solid black; 
+}
+
