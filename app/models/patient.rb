@@ -12,6 +12,15 @@ class Patient < ApplicationRecord
 
 	enum gender: [:male, :female, :other]
 
+	validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :mr, presence: true
+  validates :dob, presence: true
+  validates :gender, presence: true
+  validates :mr, uniqueness: { message: :already_exists}
+
+
+  #Instance methods
 
 	def age
 	  (Time.now.to_s(:number).to_i - dob.to_time.to_s(:number).to_i)/10e9.to_i

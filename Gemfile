@@ -38,6 +38,9 @@ group :development, :test do
   gem 'awesome_print'
   gem 'better_errors'
   gem 'dotenv-rails'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails', '3.8.1'
+  gem 'spring-commands-rspec'
 
 end
 
@@ -56,6 +59,8 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'database_cleaner'
+  gem 'faker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

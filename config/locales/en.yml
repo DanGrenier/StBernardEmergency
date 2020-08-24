@@ -75,7 +75,21 @@ en:
       order_frequency:
         units:
           hour: "hour"    
-
+    errors:
+      models:
+        patient:
+          attributes:
+            first_name:
+              blank: Please enter first name          
+            last_name:
+              blank: Please enter last name 
+            mr:
+              blank: Patient needs a medical record number 
+              already_exists: This medical record number already exists for another patient
+            dob:
+              blank: Please enter date of birth
+            gender:
+              blank: Please select a gender        
 
 
 

@@ -76,3 +76,18 @@ fr:
       order_frequency:
         units:
           hour: "heure"        
+  errors:
+    models:
+      patient:
+        attributes:
+          first_name:
+            blank: Veuillez entrer un prénom
+          last_name:
+            blank: Veuillez entre un nom
+          mr:
+            blank: Un patient requiert un numéro de dossier médical
+            already_exists: Ce numéro de dossier médical existe déjà pour un autre patient
+          dob:
+            blank: Veuillez entrer la date de naissance
+          gender:
+            blank: Veuillez sélectionner un sexe

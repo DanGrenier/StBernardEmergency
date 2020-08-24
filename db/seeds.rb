@@ -40,7 +40,7 @@ Allergy.create({description: "Wheat"})
 Allergy.create({description: "Soy"})
 Allergy.create({description: "Fish"})
 
-
+if Rails.env.development?
 #Create Patient without allergies but with chronic conditions
 dan = Patient.create({first_name: "Daniel",
 								middle_name: "S",
@@ -88,3 +88,4 @@ jane = Patient.create({first_name: "Jane",
   
 
 #Create a patient with both
+end
