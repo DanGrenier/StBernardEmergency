@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   get '/patients', to: 'emergency_transfer_summary#index'  
 
+  resources :emergency_transfer_summary, only: [:show]
+  
   root 'emergency_transfer_summary#index'  
 end

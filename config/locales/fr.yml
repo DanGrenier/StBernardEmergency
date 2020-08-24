@@ -48,7 +48,13 @@ fr:
       words_connector: ", "    
   preposition_at: à
   preposition_on: le
+  no_allergies: aucune allergies
+  no_chronic_condition: aucune condition chronique
+  patient_selection:
+    select_patient: Sélectionnez le patient à transférer
+    transfer_button: Transfert
   transfer_summary:
+    print_button: Imprimer
     title: Sommaire de Transfer à l'Urgence (Formulaire 34L-D)
     facility_title: Établissement transférante
     facility_name: Nom 
@@ -59,6 +65,11 @@ fr:
     patient_mr: Dossier Médical (MR)
     summary_title: Sommaire
     summary_paragraph1: Ce patient de %{age} ans de sexe %{sex} a été admis à l'urgence de %{facility_name} le %{date} , à %{time} dû à %{diagnoses}. Les symptômes observés lors de l'admission étaient %{symptoms}.%{observations}  
+    summary_paragraph2: Après avoir demandé les allergies connues, le patient a déclaré %{allergies}. Après avoir demandé les conditions chroniques, le patient a déclaré %{chronic_conditions}
+    summary_medications: Les médicaments suivants ont été administrés au patient. %{medications}
+    summary_paragraph3: Le personnel a éxécuté %{diagnostic_procedures}, qui ont révélé %{patient_diagnoses}.
+    summary_treatment: "Notre équipe a traité le patient de la manière suivante: %{treatments}."
+    return_button: Retour à la liste des patients
   activerecord:
     attributes:
       patient:
@@ -69,7 +80,7 @@ fr:
       medication_order:   
         units:
           mg: "mg"
-        route:
+        routes:
           po: "PO"  
           im: "IM"
           sc: "SC"

@@ -41,9 +41,15 @@ en:
       short: "%m/%d/%y - %l:%M %p"
       time_only: "%l:%M %p"
       date_long: "%B, %d %Y"
+  no_allergies: no allergies
+  no_chronic_contitions: no chronic conditions
+  patient_selection:
+    select_patient: Select Patient to Transfer
+    transfer_button: Transfer    
   preposition_at: at
   preposition_on: "on"
   transfer_summary:
+    print_button: Print
     title: Emergency Transfer Summary (Form 34L-D)
     facility_title: Transferring Facility 
     facility_name: Name 
@@ -58,6 +64,7 @@ en:
     summary_medications: The patient was administered with %{medications}.
     summary_paragraph3: The staff performed %{diagnostic_procedures}, revealing %{patient_diagnoses}.
     summary_treatment: Our team proceeded to %{treatments}.
+    return_button: Return to Patients List
   activerecord:
     attributes:
       patient:
@@ -68,7 +75,7 @@ en:
       medication_order:   
         units:
           mg: "mg"
-        route:
+        routes:
           po: "PO"  
           im: "IM"
           sc: "SC"
