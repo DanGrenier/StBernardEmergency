@@ -1,33 +1,82 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  number:
+    currency:
+      format:
+        unit: '$'
+        delimiter: ','
+        separator: '.'
+        precision: 2
+        format: '%u%n'
+  date:
+    formats:
+      default: "%m/%d/%Y"
+      notime: "%m/%d/%Y"
+      long: "%B, %d %Y"
+    order:
+      - month
+      - day
+      - year
+    month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
+    abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+    abbr_day_names:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+    - sat
+    day_names:
+    - sunday
+    - monday
+    - tuesday
+    - wednesday
+    - thursday
+    - friday
+    - saturday
+  time:
+    formats:
+      default: "%m/%d/%Y - %l:%M:%S %p"  
+      notime: "%m/%d/%Y"  
+      short: "%m/%d/%y - %l:%M %p"
+      time_only: "%l:%M %p"
+      date_long: "%B, %d %Y"
+  preposition_at: at
+  preposition_on: "on"
+  transfer_summary:
+    title: Emergency Transfer Summary (Form 34L-D)
+    facility_title: Transferring Facility 
+    facility_name: Name 
+    patient_information_title: Patient Information 
+    patient_first_name: First Name
+    patient_middle_name: Middle Name 
+    patient_last_name: Last Name 
+    patient_mr: Medical Record (MR)
+    summary_title: Summary
+    summary_paragraph1: This %{age} years old %{sex} was admitted to %{facility_name} emergency facility on %{date}, at %{time} due to %{diagnoses}. The observed symptoms on admission were %{symptoms}.  %{observations}.
+    summary_paragraph2: Upon asking about known allergies, the patient disclosed %{allergies}. Upon asking about chronic conditions, the patient disclosed %{chronic_conditions}.
+    summary_medications: The patient was administered with %{medications}.
+    summary_paragraph3: The staff performed %{diagnostic_procedures}, revealing %{patient_diagnoses}.
+    summary_treatment: Our team proceeded to %{treatments}.
+  activerecord:
+    attributes:
+      patient:
+        genders:
+          male: "male"  
+          female: "female"
+          other: "other gender"
+      medication_order:   
+        units:
+          mg: "mg"
+        route:
+          po: "PO"  
+          im: "IM"
+          sc: "SC"
+      order_frequency:
+        units:
+          hour: "hour"    
+
+
+
+
+        

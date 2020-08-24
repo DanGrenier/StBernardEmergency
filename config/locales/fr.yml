@@ -1,0 +1,78 @@
+fr:
+  number:
+    currency:
+      format:
+        unit: '$'
+        delimiter: ','
+        separator: '.'
+        precision: 2
+        format: '%u%n'
+  date:
+    formats:
+      default: "%Y/%m/%d"
+      long: "%d, %B, %Y"
+    order:
+      - day
+      - month
+      - year
+    month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
+    abbr_month_names: [~, Jan, Fév, Mar, Avr, Mai, Jui, Juil, Août, Sept, Oct, Nov, Dec]
+    abbr_day_names:
+      - dim
+      - lun
+      - mar
+      - mer
+      - jeu
+      - ven
+      - sam
+    day_names:
+      - dimanche
+      - lundi
+      - mardi
+      - mercredi
+      - jeudi
+      - vendredi
+      - samedi
+  time:
+    formats:
+      default: "%Y/%m/%d - %H:%M:%S"  
+      notime: "%Y/%m/%d"  
+      short: "%Y/%m/%d - %H:%M"
+      time_only: "%H:%M"
+      date_long: "%d %B, %Y"
+      
+  support:
+    array:
+      last_word_connector: " et "
+      two_words_connector: " et "
+      words_connector: ", "    
+  preposition_at: à
+  preposition_on: le
+  transfer_summary:
+    title: Sommaire de Transfer à l'Urgence (Formulaire 34L-D)
+    facility_title: Établissement transférante
+    facility_name: Nom 
+    patient_information_title: Information du Patient
+    patient_first_name: Prénom
+    patient_middle_name: Deuxième Nom
+    patient_last_name: Nom de Famille
+    patient_mr: Dossier Médical (MR)
+    summary_title: Sommaire
+    summary_paragraph1: Ce patient de %{age} ans de sexe %{sex} a été admis à l'urgence de %{facility_name} le %{date} , à %{time} dû à %{diagnoses}. Les symptômes observés lors de l'admission étaient %{symptoms}.%{observations}  
+  activerecord:
+    attributes:
+      patient:
+        genders:
+          male: "masculin"  
+          female: "féminin"
+          other: "inconnu ou autre"
+      medication_order:   
+        units:
+          mg: "mg"
+        route:
+          po: "PO"  
+          im: "IM"
+          sc: "SC"
+      order_frequency:
+        units:
+          hour: "heure"        
