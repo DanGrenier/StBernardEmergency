@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :observation do 
     admission
-    description {""}
-    moment {DateTime.now}
+    description {"Observation"}
+    moment {DateTime.current}
   end
 
 end

@@ -12,7 +12,7 @@ FactoryBot.define do
     last_name {Faker::Name.last_name}
     middle_name {Faker::Name.first_name}
     mr {generate(:medical_record)}
-    dob {(DateTime.now-40.year)}
+    dob {(DateTime.current-40.year)}
     gender {:male}
   end
 
@@ -21,7 +21,7 @@ FactoryBot.define do
     last_name {Faker::Name.last_name}
     middle_name {Faker::Name.male_first_name}
     mr {generate(:medical_record)}
-    dob {(DateTime.now-40.year)}
+    dob {(DateTime.current-40.year)}
     gender {:male}
   end
 
@@ -30,7 +30,7 @@ FactoryBot.define do
     last_name {Faker::Name.last_name}
     middle_name {Faker::Name.female_first_name}
     mr {generate(:medical_record)}
-    dob {(DateTime.now-40.year)}
+    dob {(DateTime.current-40.year)}
     gender {:male}
   end
 
