@@ -67,16 +67,23 @@
 	</div>
   <div class = "panel-body">
   	<div class = "row col-sm-12">
-      <p id="paragraph1">
-  		<%=I18n.t('transfer_summary.summary_paragraph1',
-  							age: @patient.age,
-  							sex: Patient.human_enum_name(:genders,@patient.gender),
-  							facility_name: "Blue Alps Ski Camp",
-  							date: @patient.admission.date,
-  							time: @patient.admission.time,
-  							diagnoses: @patient.admission.diagnoses_list,
-  							symptoms: @patient.admission.symptoms_list,
-  							observations: @patient.admission.observations_list)%>
+      <p id="paragraph_admission">
+  		  <%=I18n.t('transfer_summary.summary_admission',
+  				age: @patient.age,
+  				sex: Patient.human_enum_name(:genders,@patient.gender),
+  				facility_name: "Blue Alps Ski Camp",
+  				date: @patient.admission.date,
+  				time: @patient.admission.time,
+  				diagnoses: @patient.admission.diagnoses_list)%> 
+        <%if @patient.admission.symptoms.any?%>      
+          <%=I18n.t('transfer_summary.summary_symptoms',
+            symptoms: @patient.admission.symptoms_list)%>
+        <%else%>
+          <%=I18n.t('transfer_symmary.no_symptoms') %> 
+        <%end%>
+          <%=I18n.t('transfer_summary.summary_observations',
+          observations: @patient.admission.observations_list)%>
+            
       </p>
       <p id="paragraph2">
         <%=I18n.t('transfer_summary.summary_paragraph2',

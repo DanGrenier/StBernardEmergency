@@ -64,7 +64,10 @@ fr:
     patient_last_name: Nom de Famille
     patient_mr: Dossier Médical (MR)
     summary_title: Sommaire
-    summary_paragraph1: Ce patient de %{age} ans de sexe %{sex} a été admis à l'urgence de %{facility_name} le %{date} , à %{time} dû à %{diagnoses}. Les symptômes observés lors de l'admission étaient %{symptoms}.%{observations}  
+    summary_admission: Ce patient de %{age} ans de sexe %{sex} a été admis à l'urgence de %{facility_name} le %{date} , à %{time} dû à %{diagnoses}.
+    summary_symptoms:  Les symptômes observés lors de l'admission étaient %{symptoms}.
+    summary_no_symptoms: Aucun symptôme n'a été observé.
+    summary_observations: "%{observations}"
     summary_paragraph2: Après avoir demandé les allergies connues, le patient a déclaré %{allergies}. Après avoir demandé les conditions chroniques, le patient a déclaré %{chronic_conditions}
     summary_medications: Les médicaments suivants ont été administrés au patient. %{medications}
     summary_paragraph3: Le personnel a éxécuté %{diagnostic_procedures}, qui ont révélé %{patient_diagnoses}.
@@ -102,3 +105,7 @@ fr:
             blank: Veuillez entrer la date de naissance
           gender:
             blank: Veuillez sélectionner un sexe
+      admission:
+        attributes:
+          moment: 
+            blank: Veuillez entrer le moment de l'admission        

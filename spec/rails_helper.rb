@@ -23,7 +23,7 @@ require 'rspec/rails'
 # require only the support files necessary.
 #
 # Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
-
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
 begin
@@ -48,6 +48,7 @@ RSpec.configure do |config|
   # You can disable this behaviour by removing the line below, and instead
   # explicitly tag your specs with their type, e.g.:
   config.include FactoryBot::Syntax::Methods
+  #config.include Features::SessionHelpers, type: :feature
   #     RSpec.describe UsersController, :type => :controller do
   #       # ...
   #     end
@@ -55,7 +56,7 @@ RSpec.configure do |config|
   config.before(:suite) do 
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
-    Rails.application.load_seed
+    
   end
 
   config.around(:each) do |example| 

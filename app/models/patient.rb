@@ -1,13 +1,19 @@
 class Patient < ApplicationRecord
 	has_one :admission
+	
 	has_many :patient_allergies
 	has_many :allergies, through: :patient_allergies
+	
 	has_many :patient_chronic_conditions
 	has_many :chronic_conditions, through: :patient_chronic_conditions, source: :diagnosis
+	
 	has_many :medications , foreign_key: "patient_id", class_name: "MedicationOrder"
+	
 	has_many :diagnostic_procedures
+	
 	has_many :patient_diagnoses
 	has_many :diagnoses, through: :patient_diagnoses
+	
 	has_many :treatments
 
 	enum gender: [:male, :female, :other]

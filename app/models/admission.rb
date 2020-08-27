@@ -6,6 +6,8 @@ class Admission < ApplicationRecord
 	has_many :symptoms, through: :admission_symptoms
 	has_many :observations
 
+  validates :moment, presence: true
+
 	scope :current, -> (target_date) {where('DATE(admissions.moment) = ?',target_date)}
 
 
@@ -18,11 +20,11 @@ class Admission < ApplicationRecord
 	end
 
 	def symptoms_list
-		self.symptoms.map{|s| s.description.downcase}.to_sentence(locale: I18n.locale)
+		self.symptoms.any? ? self.symptoms.map{|s| s.description.downcase}.to_sentence(locale: I18n.locale) : ""
 	end
 
 	def observations_list
-		self.observations.map{|o| o.description}.to_sentence(locale: I18n.locale)
+		self.observations.any? ? (self.observations.map{|o| o.description}.to_sentence(locale: I18n.locale)).capitalize+"." : ""
 	end
 	
 	def date 

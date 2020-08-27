@@ -42,7 +42,7 @@ en:
       time_only: "%l:%M %p"
       date_long: "%B, %d %Y"
   no_allergies: no allergies
-  no_chronic_contitions: no chronic conditions
+  no_chronic_conditions: no chronic conditions
   patient_selection:
     select_patient: Select Patient to Transfer
     transfer_button: Transfer    
@@ -59,7 +59,10 @@ en:
     patient_last_name: Last Name 
     patient_mr: Medical Record (MR)
     summary_title: Summary
-    summary_paragraph1: This %{age} years old %{sex} was admitted to %{facility_name} emergency facility on %{date}, at %{time} due to %{diagnoses}. The observed symptoms on admission were %{symptoms}.  %{observations}.
+    summary_admission: This %{age} years old %{sex} was admitted to %{facility_name} emergency facility on %{date}, at %{time} due to %{diagnoses}.
+    summary_symptoms: The observed symptoms on admission were %{symptoms}.
+    summary_no_symptoms: No symptoms observed upon admission.
+    summary_observations: "%{observations}"
     summary_paragraph2: Upon asking about known allergies, the patient disclosed %{allergies}. Upon asking about chronic conditions, the patient disclosed %{chronic_conditions}.
     summary_medications: The patient was administered with %{medications}.
     summary_paragraph3: The staff performed %{diagnostic_procedures}, revealing %{patient_diagnoses}.
@@ -96,8 +99,9 @@ en:
             dob:
               blank: Please enter date of birth
             gender:
-              blank: Please select a gender        
-
-
-
+              blank: Please select a gender     
+        admission:
+          attributes:
+            moment: 
+              blank: Please enter admission time
         
