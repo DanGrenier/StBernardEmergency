@@ -1,116 +1,141 @@
 <div class = "row">
-
-<div class = "panel panel-with-borders">
-	<div class = "panel-heading blue-header">
-		<div class = "panel-title">
-			<h3 style="display: inline">
-        <%=I18n.t 'transfer_summary.title'%>
-      </h3>
+  <div class = "panel panel-with-borders">
+	  <div class = "panel-heading blue-header">
+		  <div class = "panel-title">
+        <!--Transfer Form Title -->
+			  <h3 style="display: inline">
+          <%=I18n.t 'transfer_summary.title'%>
+        </h3>
+        <!--Link to Print floated to right -->
+        <%=link_to (I18n.t 'transfer_summary.print_button'),
+        "#",
+        {onclick:"window.print();return false;",
+        class:"btn btn-print no-print float-right"}%>
+ 		  </div>
+	  </div>
+    <!--Show the Facility Section -->
+	  <div class = "panel-title 
+                  silver-title 
+                  transfer-label">
+      <%=I18n.t 'transfer_summary.facility_title'%>
+    </div>
+    
+    <div class="panel-body">
+  	  <div class = "row">
+  		  <div class = "col-sm-3 transfer-label">
+  			  <%=I18n.t 'transfer_summary.facility_name'%>
+  		  </div>
+  	  </div>
+  	  <div class = "row">
+  		  <div class = "col-sm-3">
+  			  <%=Facility.first.name%>
+   		  </div>
+  	  </div>
+    </div>
+    <!--Show the Patient Summary Section -->
+    <div class = "panel-title
+                  silver-title 
+                  transfer-label">
+	    <%=I18n.t 'transfer_summary.patient_information_title'%>
+    </div>
+    <div class = "panel-body">
       
-        <%=link_to (I18n.t 'transfer_summary.print_button'), "#",
-      {onclick:"window.print();return false;",
-                  class:"btn btn-print no-print", 
-                  style: "float: right"}%>
-      
-		</div>
-	</div>
-	<div class = "panel-title silver-title transfer-label">
-	  <%=I18n.t 'transfer_summary.facility_title'%>
-  </div>
-  <div class="panel-body">
-  	<div class = "row">
-  		<div class = "col-sm-3 transfer-label">
-  			<%=I18n.t 'transfer_summary.facility_name'%>
-  		</div>
-  	</div>
-  	<div class = "row">
-  		<div class = "col-sm-3">
-  			<%=Facility.first.name%>
-  		</div>
-  	</div>
-  </div>
-  <div class = "panel-title silver-title transfer-label">
-	  <%=I18n.t 'transfer_summary.patient_information_title'%>
-  </div>
-  <div class = "panel-body">
-  	<div class = "row">
-  		<div class = "col-sm-2 transfer-label">
-  			<%=I18n.t 'transfer_summary.patient_first_name'%>
-  		</div>
-  		<div class = "col-sm-2 transfer-label">
-  			<%=I18n.t 'transfer_summary.patient_middle_name'%>
-  		</div>
-  		<div class = "col-sm-2 transfer-label">
-  			<%=I18n.t 'transfer_summary.patient_last_name'%>
-  		</div>
-  		<div class = "col-sm-3 transfer-label">
-  			<%=I18n.t 'transfer_summary.patient_mr'%>
-  		</div>
-  	</div>
-  	<div class = "row">
-  		<div class = "col-sm-2">
-  			<%=@patient.first_name%>
-  		</div>
-  		<div class = "col-sm-2">
-  			<%=@patient.middle_name%>
-  		</div>
-  		<div class = "col-sm-2">
-  			<%=@patient.last_name%>
-  		</div>
-  		<div class = "col-sm-3">
-  			<%=@patient.mr%>
-  		</div>
-  	</div>
-  </div>
-  <div class = "panel-title silver-title transfer-label">
-	  <%=I18n.t 'transfer_summary.summary_title'%>
-	</div>
-  <div class = "panel-body">
-  	<div class = "row col-sm-12">
-      <p id="paragraph_admission">
-  		  <%=I18n.t('transfer_summary.summary_admission',
-  				age: @patient.age,
-  				sex: Patient.human_enum_name(:genders,@patient.gender),
-  				facility_name: "Blue Alps Ski Camp",
-  				date: @patient.admission.date,
-  				time: @patient.admission.time,
-  				diagnoses: @patient.admission.diagnoses_list)%> 
-        <%if @patient.admission.symptoms.any?%>      
-          <%=I18n.t('transfer_summary.summary_symptoms',
-            symptoms: @patient.admission.symptoms_list)%>
-        <%else%>
-          <%=I18n.t('transfer_symmary.no_symptoms') %> 
-        <%end%>
+  	  <div class = "row">
+        <!--First name -->
+  		  <div class = "col-sm-2 transfer-label">
+  			  <%=I18n.t 'transfer_summary.patient_first_name'%>
+  		  </div>
+        <!--Middle name -->
+  		  <div class = "col-sm-2 transfer-label">
+  			  <%=I18n.t 'transfer_summary.patient_middle_name'%>
+  		  </div>
+        <!--Last name -->
+  		  <div class = "col-sm-2 transfer-label">
+  			  <%=I18n.t 'transfer_summary.patient_last_name'%>
+  		  </div>
+        <!--Medical Record -->
+  		  <div class = "col-sm-3 transfer-label">
+  			  <%=I18n.t 'transfer_summary.patient_mr'%>
+  		  </div>
+  	  </div>
+      <!--Show the Column Data -->
+  	  <div class = "row">
+        <!--First name -->
+  		  <div class = "col-sm-2">
+  			  <%=@patient.first_name%>
+  		  </div>
+        <!--Middle name -->
+  		  <div class = "col-sm-2">
+  			  <%=@patient.middle_name%>
+  		  </div>
+        <!--Last name -->
+  		  <div class = "col-sm-2">
+  			  <%=@patient.last_name%>
+  		  </div>
+        <!--Medical Record -->
+  		  <div class = "col-sm-3">
+  			  <%=@patient.mr%>
+  		  </div>
+  	  </div>
+    </div>
+    <!--Transfer Summary Section -->
+    <div class = "panel-title 
+                  silver-title 
+                  transfer-label">
+	    <%=I18n.t 'transfer_summary.summary_title'%>
+	  </div>
+    <div class = "panel-body">
+  	  <div class = "row col-sm-12">
+        <!--Admission Information Paragraph -->
+        <p id="paragraph_admission">
+  		    <%=I18n.t('transfer_summary.summary_admission',
+  				  age: @patient.age,
+  				  sex: Patient.human_enum_name(:genders,@patient.gender),
+  				  facility_name: Facility.first.name,
+  				  date: @patient.admission.date,
+  				  time: @patient.admission.time,
+  				  diagnoses: @patient.admission.diagnoses_list)%> 
+          <!--Show text about symptoms if any -->
+          <%if @patient.admission.symptoms.any?%>
+            <%=I18n.t('transfer_summary.summary_symptoms',
+              symptoms: @patient.admission.symptoms_list)%>
+          <%else%>
+            <%=I18n.t('transfer_symmary.no_symptoms') %> 
+          <%end%>
+          <!--Show observation. Will not show if none -->
           <%=I18n.t('transfer_summary.summary_observations',
           observations: @patient.admission.observations_list)%>
             
-      </p>
-      <p id="paragraph2">
-        <%=I18n.t('transfer_summary.summary_paragraph2',
-           allergies: @patient.allergies_list,
-           chronic_conditions: @patient.chronic_conditions_list)%>
-        <%if @patient.medications.any?%>
-          <%= I18n.t('transfer_summary.summary_medications',
-            medications: @patient.medications_list) %>
-        <%end%>
-      </p>
-
-      <p id="paragraph3">
-        <%=I18n.t('transfer_summary.summary_paragraph3',
-        diagnostic_procedures: @patient.diagnostic_procedures_list,
-        patient_diagnoses: @patient.diagnoses_list)%>
-        <%if @patient.treatments.any? %>
-          <%=I18n.t('transfer_summary.summary_treatment',
-      treatments: @patient.treatments_list)%>
-        <%end%>
-      </p>
-  	</div>
+        </p>
+        <!--Allergies, Chronic Conditions and Medications section -->
+        <p id="paragraph2">
+          <%=I18n.t('transfer_summary.summary_paragraph2',
+            allergies: @patient.allergies_list,
+            chronic_conditions: @patient.chronic_conditions_list)%>
+          <!--Show medications only if any -->
+          <%if @patient.medications.any?%>
+            <%= I18n.t('transfer_summary.summary_medications',
+              medications: @patient.medications_list) %>
+          <%end%>
+        </p>
+        <!--Section with Diagnostic Procedure, final diagnoses and Treatment -->
+        <p id="paragraph3">
+          <%=I18n.t('transfer_summary.summary_paragraph3',
+            diagnostic_procedures: @patient.diagnostic_procedures_list,
+            patient_diagnoses: @patient.diagnoses_list)%>
+          <!--Show treatments only if any given -->
+          <%if @patient.treatments.any? %>
+            <%=I18n.t('transfer_summary.summary_treatment',
+               treatments: @patient.treatments_list)%>
+          <%end%>
+        </p>
+  	  </div>
+    </div>
+    <!-- End of Panel -->
   </div>
-</div>
 
-<div class = "no-print">
-<%=link_to (I18n.t 'transfer_summary.return_button') ,
-'/patients', class:"btn btn-return"%>
-</div>
-
+ <div class = "no-print">
+   <%=link_to (I18n.t 'transfer_summary.return_button') ,
+   root_path, class:"btn btn-return"%>
+  </div>
 </div>

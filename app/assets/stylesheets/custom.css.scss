@@ -4,12 +4,23 @@
 
 :root {
 	--custom-blue: #002b7f;
+	--custom-grey: #f5f7fa;
 }
 
 body {
 	margin-top: 10px;
 }
 
+.float-right {
+	float: right;
+}
+
+.panel-title-center {
+	text-align: center;
+}
+.light-background {
+	background-color: var(--custom-grey)
+}
 
 .btn-print {
 	background-color: white;
@@ -26,6 +37,7 @@ body {
 }
 
 .silver-title {
+	padding-left: 10px;
 	background-color: silver;
 }
 

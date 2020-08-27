@@ -1,5 +1,11 @@
 require 'rails_helper'
 
+#Shared context containing all the code
+#To create factories for 4 different patients
+#All of them with different numbers of
+#symptoms, diagnoses, allergies, chronic conditions
+#treatments, medications and diagnostic procedures
+#in order to properly test the human readable text
 
 shared_context "shared_factories" do
 	let!(:facility)  {create :facility}

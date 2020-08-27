@@ -1,6 +1,6 @@
 //CSS Used to print the transfer form
-//There is known bug with Bootstrap 3
-//In print mode, it uses a mobile setting for some reason
+//There is a known bug with Bootstrap 3
+//In print mode, it uses mobile settings for some reason
 //So the basic column classes are not available and
 //have to be manually re-created
 //Upgrading to bootstrap 4 should be considered
@@ -18,16 +18,25 @@
     border: 2px solid black;
   }
 
+  //overriding the silver title style to just a box
+  //for printing
   .silver-title{
     border : 1px solid black;
   }
 
-
+  //Class used to quickly hide what we don't want printed
   .no-print {
     display: none;
   }
+  
+  //We don't want to show the urls
   a {
     display: none;
+  }
+
+  .container {
+    margin: 0px;
+    width: 100%;
   }
 
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
@@ -221,8 +230,5 @@
   td.visible-sm {
     display: table-cell !important;
   }
-  .container {
-    margin: 0px;
-    width: 100%;
-  }
+  
 }

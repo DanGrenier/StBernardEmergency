@@ -2,33 +2,26 @@ require 'rails_helper'
 
 RSpec.describe Admission, type: :model do 
 	describe "Testing Admission" do
-		include_context "shared_factories"  
+		#Include our shared factories
+	  include_context "shared_factories"  
 
-  
-  describe "Test Model validations" do 
-	  #Testing validity of the factory
-	  it "has a valid factory" do 
-	    expect(build(:admission)).to be_valid
-    end
+    describe "Test Model validations" do 
+	    #Testing validity of the factory
+	    it "has a valid factory" do 
+	      expect(build(:admission)).to be_valid
+      end
 
-    it "is invalid without a patient" do  
-      expect(build(:admission, patient: nil )).not_to be_valid
-    end
+    	it "is invalid without a patient" do  
+      	expect(build(:admission, patient: nil )).not_to be_valid
+    	end
 
-    it "is invalid without a moment (datetime)" do 
-      expect(build(:admission, moment: nil)).not_to be_valid
-    end
-
-  end
+    	it "is invalid without a moment (datetime)" do 
+      	expect(build(:admission, moment: nil)).not_to be_valid
+    	end
+	  end
 	
-	
-  
-  describe "Testing methods" do 
-	  # Create patients with 3, 2 and 1 of each
-  	# symptoms, diagnoses, allergies, chronic conditions
-  	# medications, diagnostic procedures and treatments  	
-	
-
+		describe "Testing methods" do 
+	  	
       describe ".current (scope)" do 
       	it "should return the proper current (today) list of patients" do
       		pp DateTime.now

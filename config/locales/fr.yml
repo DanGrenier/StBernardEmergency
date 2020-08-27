@@ -48,6 +48,7 @@ fr:
       words_connector: ", "    
   preposition_at: à
   preposition_on: le
+  transfer_patient_title: Transfert d'un Patient
   no_allergies: aucune allergies
   no_chronic_condition: aucune condition chronique
   patient_selection:

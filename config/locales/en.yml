@@ -41,6 +41,7 @@ en:
       short: "%m/%d/%y - %l:%M %p"
       time_only: "%l:%M %p"
       date_long: "%B, %d %Y"
+  transfer_patient_title: Transfer Patient
   no_allergies: no allergies
   no_chronic_conditions: no chronic conditions
   patient_selection:

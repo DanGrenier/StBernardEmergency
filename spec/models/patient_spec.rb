@@ -2,52 +2,44 @@ require 'rails_helper'
 
 RSpec.describe Patient, type: :model do 
 	describe "Testing Patient" do
-
-	include_context "shared_factories"  
-
+	  #Include our shared factories	
+	  include_context "shared_factories"  
 	 
-  describe "Test Model validations" do 
-	  #Testing validity of the factory
-	  it "has a valid factory" do 
-	    expect(build(:patient)).to be_valid
-    end
+    describe "Test Model validations" do 
+	  	#Testing validity of the factory
+	  	it "has a valid factory" do 
+	    	expect(build(:patient)).to be_valid
+    	end
 
-    #Test validation of missing values that dont allow null
-	  it "is invalid without first name" do 
-  	  expect(build(:patient, first_name: nil )).not_to be_valid
+    	#Test validation of missing values that dont allow null
+	  	it "is invalid without first name" do 
+  	  	expect(build(:patient, first_name: nil )).not_to be_valid
+  		end
+
+	  	it "is invalid without last name" do 
+	    	expect(build(:patient, last_name: nil )).not_to be_valid
+	  	end
+	 
+	  	it "is invalid without medical record" do  
+	    	expect(build(:patient, mr: nil )).not_to be_valid
+	  	end
+
+	  	it "is invalid without date of birth" do  
+	    	expect(build(:patient, dob: nil )).not_to be_valid
+	  	end
+
+    	it "is invalid without gender" do  
+	     	expect(build(:patient, gender: nil )).not_to be_valid
+  	  end
+
+    	it "does not accept duplicate medical record" do 
+      	expect(build(:patient, mr: patient1.mr)).not_to be_valid
+    	end
   	end
-
-	  it "is invalid without last name" do 
-	    expect(build(:patient, last_name: nil )).not_to be_valid
-	  end
-	 
-	  it "is invalid without medical record" do  
-	    expect(build(:patient, mr: nil )).not_to be_valid
-	  end
-
-	  it "is invalid without date of birth" do  
-	    expect(build(:patient, dob: nil )).not_to be_valid
-	  end
-
-    it "is invalid without gender" do  
-      expect(build(:patient, gender: nil )).not_to be_valid
-    end
-
-    it "does not accept duplicate medical record" do 
-      expect(build(:patient, mr: patient1.mr)).not_to be_valid
-    end
-
-  end
   
   
-  describe "Test the methods" do 
-  	# Create patients with 3, 2 and 1 of each
-  	# symptoms, diagnoses, allergies, chronic conditions
-  	# medications, diagnostic procedures and treatments
-  	# To test the proper formatting of the to_sentence method
+  	describe "Test the methods" do 
   	
-		
-
 		 	describe "#age" do 
 	      it "should return the proper age" do 
 	        expect(patient1.age).to eq(40)
