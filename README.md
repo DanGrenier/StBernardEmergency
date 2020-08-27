@@ -40,6 +40,11 @@
 # Database Structure
   Based on the choices made initially, The symptoms, allergies and diagnoses tables are tables that contain static data and are not directly linked to a patient or admission. You can associate one of these entity to a patient or admission via a joining table patient_id -> allergy_id , patient_id -> symptom_id. 
 
+
+# Application Structure
+  For the moment, the methods generating tha natural
+  languages live in the Admission and Patient classes. This can easily be refactored to take place into a display helper, presenter or decorator and remove that responsibility from the class. 
+
 # Testing 
   I installed Rspec and Capybara for testing because I didn't want to fight with the test suite. I used FactoryBot to create default factories and use them throughout the testing suite. I created a shared context that creates 4 patients all with different numbers or symptoms, allergies, diagnostic procedures, treatments, medications and observations in order to test the human readable sentences that need to be generated for the emergency transfer form. I proceeded to create unit tests for the models that interact with the users and that generates the human readable text. Patient, Admission, DiagnosticProcedure, MedicationOrder, Treatment, Observation. I then proceeded to create one simple feature test that checks for the presence of the patient name when the form is rendered. This feature test can be greatly expanded and have more precision as we can use capybara css selectors to make sure the proper text appers in the proper elements on the form. A test with js:true and a headless browser also needs to be added since the Patient select box uses javascript to redirect to the emergency transfer form
 
