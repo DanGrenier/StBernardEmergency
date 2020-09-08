@@ -46,14 +46,14 @@ dan = Patient.create({first_name: "Daniel",
 	admission.admission_symptoms.create({admission_id: admission.id, symptom_id: Symptom.first.id})
 	admission.observations.create({admission_id: admission.id, moment: DateTime.now, description: "Does not appear to be a compound fracture" })
 	dan.patient_chronic_conditions.create({diagnosis_id: Diagnosis.last.id})
-  med = dan.medications.create({name: "Ibuprofen", unit: :mg, dosage: 500.00, route: :po, necessity: "To manage pain" })
+  med = dan.medications.create({name: "Ibuprofen", unit: :mg, dosage: 500.00, route: :po, necessity: "manage pain" })
   med.create_order_frequency({value: "6", unit: :hour})
   
   dan.diagnostic_procedures.create({description: "a radiography", moment: DateTime.now})
   dan.diagnostic_procedures.create({description: "an MRI", moment: DateTime.now})
   dan.patient_diagnoses.create({diagnosis_id: Diagnosis.first.id})
-  dan.treatments.create({description: "Immobilized the injured area", necessity: "reduce discomfort and restrict motion"})
-  dan.treatments.create({description: "Applied ice to the area", necessity: "reduce swelling"})
+  dan.treatments.create({description: "Immobilize the injured area", necessity: "reduce discomfort and restrict motion"})
+  dan.treatments.create({description: "Apply ice to the area", necessity: "reduce swelling"})
 
 #Create patient with allergies but without chronic conditions
 jane = Patient.create({first_name: "Jane",
@@ -77,5 +77,5 @@ jane = Patient.create({first_name: "Jane",
   jane.patient_diagnoses.create({diagnosis_id: Diagnosis.first.id})
   
 
-#Create a patient with both
+
 end

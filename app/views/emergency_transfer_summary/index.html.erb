@@ -16,7 +16,7 @@
  		    class: "control-label col-sm-3")%>
 	  
 		    <div class = "col-sm-4">
-	        <%=collection_select(nil, :id, @patients, -> (p) {emergency_transfer_summary_path p},
+	        <%=collection_select(nil, :id, @admissions, -> (p) {emergency_transfer_summary_path p},
 		      :patient_name, {selected: -1},
 		      {class: "form-control input-sm"}) %>
 		    </div>

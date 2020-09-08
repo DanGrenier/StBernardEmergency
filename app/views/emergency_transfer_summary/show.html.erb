@@ -92,19 +92,19 @@
   				  age: @patient.age,
   				  sex: Patient.human_enum_name(:genders,@patient.gender),
   				  facility_name: Facility.first.name,
-  				  date: @patient.admission.date,
-  				  time: @patient.admission.time,
-  				  diagnoses: @patient.admission.diagnoses_list)%> 
+  				  date: @admission.date,
+  				  time: @admission.time,
+  				  diagnoses: @admission.diagnoses_list)%> 
           <!--Show text about symptoms if any -->
           <%if @patient.admission.symptoms.any?%>
             <%=I18n.t('transfer_summary.summary_symptoms',
-              symptoms: @patient.admission.symptoms_list)%>
+              symptoms: @admission.symptoms_list)%>
           <%else%>
             <%=I18n.t('transfer_symmary.no_symptoms') %> 
           <%end%>
           <!--Show observation. Will not show if none -->
           <%=I18n.t('transfer_summary.summary_observations',
-          observations: @patient.admission.observations_list)%>
+          observations: @admission.observations_list)%>
             
         </p>
         <!--Allergies, Chronic Conditions and Medications section -->
